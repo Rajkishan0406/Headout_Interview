@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.InterviewHeadout.Service.ReviewService;
 import com.example.InterviewHeadout.Model.Review;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -59,7 +59,7 @@ public class ReviewController {
    
 
     @GetMapping("/reviews/{productId}")
-    public ResponseEntity<String> getReviews(@PathVariable int productId) {
+    public ResponseEntity<List<Review>> getReviews(@PathVariable int productId) {
         List<Review> review = reviewService.getReviews(productId);
         return ResponseEntity.ok(review);
     }
